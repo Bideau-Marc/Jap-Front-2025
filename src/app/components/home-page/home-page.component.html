@@ -1,0 +1,24 @@
+<div class="home-container">
+    <h1>{{ title }}</h1>
+    <p>Bienvenue sur la page d'accueil de notre site d'apprentissage des langues !</p>
+
+    <div class="form-group">
+        <label for="language">Sélectionnez la langue :</label>
+        <select id="language" (change)="onLanguageChange($event)">
+            <option value="" disabled selected>Choisir un langage :</option>
+            <option *ngFor="let language of languages" [value]="language">{{ language }}</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="theme">Sélectionnez un thème :</label>
+        <select id="theme" [disabled]="filteredThemes.length === 0" (change)="onThemesChange($event)">
+            <option value="" disabled selected>Choisir un thème :</option>
+            <option *ngFor="let theme of filteredThemes" [value]="theme.id">
+                {{ theme.name }}
+            </option>
+        </select>
+    </div>
+
+    <button (click)="startExercise()">Commencer les exercices</button>
+</div>

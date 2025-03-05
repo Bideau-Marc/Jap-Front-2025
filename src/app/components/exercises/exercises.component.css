@@ -1,0 +1,68 @@
+    .exercise-selection {
+        text-align: center;
+        margin-top: 50px;
+    }
+
+    .exercise-options {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    .button-container {
+        display: flex;
+        justify-content: center;
+        /* Centre horizontalement */
+        align-items: center;
+    }
+
+    .centered {
+        text-align: center;
+    }
+
+    /* CSS pour un bouton retour encore plus discret */
+    .home-button {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        padding: 8px 18px;
+        background-color: transparent;
+        color: #555;
+        /* Gris sombre pour la couleur du texte */
+        border: none;
+        border-radius: 20px;
+        font-size: 14px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        border: 2px solid #ccc;
+        /* Gris clair pour les bordures */
+        z-index: 10;
+    }
+
+    .home-button:hover {
+        background-color: #f0f0f0;
+        /* Fond gris clair au survol */
+        color: #333;
+        /* Texte légèrement plus foncé */
+        border-color: #bbb;
+        /* Bordure un peu plus foncée au survol */
+    }
+
+    .home-button:focus {
+        outline: none;
+        /* Pas de contour au focus */
+    }
+
+    .home-button:active {
+        background-color: #eaeaea;
+        /* Légère couleur au clic */
+        transform: scale(0.98);
+        /* Réduction au clic */
+    }

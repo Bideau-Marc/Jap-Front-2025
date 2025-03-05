@@ -1,0 +1,33 @@
+<div class="exercise-selection" *ngIf="!typeExercice || replayed">
+    <h2>Select an Exercise Type</h2>
+    <div class="exercise-options">
+        <button (click)="selectExercise(ExerciceType.QCM); this.replayed = false;">QCM</button>
+        <button
+            (click)="selectExercise(ExerciceType['Fill-in-the-blank']); this.replayed = false;">Fill-in-the-Blank</button>
+        <button (click)="selectExercise(ExerciceType.translation); this.replayed = false;">Traduction</button>
+    </div>
+</div>
+
+<!-- Affichage dynamique selon le type d'exercice -->
+<div *ngIf="typeExercice === ExerciceType.QCM && this.replayed !==true">
+    <app-qcm [exercices]="exercices"></app-qcm>
+</div>
+
+<div *ngIf="typeExercice === ExerciceType['Fill-in-the-blank'] && this.replayed !==true">
+    <app-exercice-fill-in-the-blank [exercices]="exercices"></app-exercice-fill-in-the-blank>
+</div>
+
+<div *ngIf="typeExercice === ExerciceType.translation && this.replayed !==true">
+    <app-translation [exercices]="exercices"></app-translation>
+</div>
+
+<!-- Bouton Retour à la page d'accueil -->
+<button class="home-button" (click)="goToHomePage()">Retour à l'accueil</button>
+
+<div class="centered">
+    <button *ngIf="isAllAnswered() && !corrected" (click)="goToCorrection()" class="styled-button">Voir la
+        correction</button>
+    <button *ngIf="corrected" (click)="this.replay()" class="styled-button">Recommencer ce type d'exercice</button>
+    <button *ngIf="corrected" (click)="this.changeExerciceType();" class="styled-button">Changer de type
+        d'exercice</button>
+</div>

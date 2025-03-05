@@ -1,0 +1,26 @@
+<div *ngFor="let exercice of exercices; let i = index">
+    <div>{{ exercice.question }}</div>
+    <ul>
+        <li *ngFor="let choice of exercice.choices">
+            <input type="radio" [id]="'qcm-' + exercice.id + '-' + choice" [name]="'qcm-' + exercice.id"
+                [value]="choice" (change)="checkAnswer(exercice, choice)" [class.correct-border]=" exercice.isCorrect !=='pending' && exercice.userAnswer===choice &&
+                exercice.realAnswer.includes(choice)"
+                [class.incorrect-border]="exercice.isCorrect !== 'pending' && exercice.userAnswer === choice && !exercice.realAnswer.includes(choice)"
+                [class.disabled-input]="exercice.isCorrect !== 'pending'">
+
+            <!-- Lier le texte du choix avec l'input radio -->
+            <label [for]="'qcm-' + exercice.id + '-' + choice">{{ choice }}</label>
+
+            <!-- Ajout des icônes ✅❌ -->
+            <span *ngIf="exercice.isCorrect !== 'pending'">
+                <span *ngIf="exercice.realAnswer.includes(choice)" class="icon">✅</span>
+                <span *ngIf="!exercice.realAnswer.includes(choice)" class="icon">❌</span>
+            </span>
+        </li>
+    </ul>
+
+    <!-- Affichage de la bonne réponse si l'utilisateur s'est trompé -->
+    <p *ngIf="exercice.isCorrect !== 'pending' && !exercice.isCorrect" class="correct-answer">
+        La bonne réponse était : <strong>{{ exercice.realAnswer }}</strong>
+    </p>
+</div>

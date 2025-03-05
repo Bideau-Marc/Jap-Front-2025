@@ -1,0 +1,17 @@
+<!-- fill-in-the-blank-app.component.html -->
+<div class="question-container">
+    <div *ngFor="let exercice of exercices; let i = index" class="question-exercice">
+        <div class="question">{{ exercice.question }}</div>
+        <div class="div-input">
+            <input type="text" [(ngModel)]="exercice.userAnswer" class="question-input">
+        </div>
+        <div class="feedback" *ngIf="exercice.isCorrect !== 'pending'">
+            <span *ngIf="exercice.isCorrect" class="correct-text">
+                ✅ Bonne réponse !
+            </span>
+            <span *ngIf="!exercice.isCorrect" class="incorrect-text">
+                ❌ Raté ! La bonne réponse était : <b>{{ exercice.realAnswer }}</b>
+            </span>
+        </div>
+    </div>
+</div>
