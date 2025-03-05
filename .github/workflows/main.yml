@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main  # Branche de déploiement (s'assurer que c'est la bonne branche)
+  pull_request:
+    branches:
+      - main  # Lorsque la PR est ouverte vers la branche main
 
 jobs:
   deploy:
