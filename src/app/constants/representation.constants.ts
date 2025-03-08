@@ -10,4 +10,4 @@ export const LANGUAGE_MAPPING: { [key: string]: string[] } = {
     Thai: ['thaiWord.thai', 'thaiWord.romanisationThai'],
     Georgian: ['georgianWord.georgian', 'georgianWord.romanisationGeorgian'],
     Arménien: ['armenianWord.armenian', 'armenianWord.romanisationArmenian']
-};
+}; 
