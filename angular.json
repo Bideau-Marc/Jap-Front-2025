@@ -17,8 +17,6 @@
               "base": "docs",
               "browser": ""
             },
-            "baseHref": "Jap-Front-2025",
-            "deleteOutputPath": true,
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -49,6 +47,7 @@
                 }
               ],
               "outputHashing": "all",
+              "baseHref": "/Jap-Front-2025/",
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -60,6 +59,7 @@
               "optimization": false,
               "extractLicenses": false,
               "sourceMap": true,
+              "baseHref": "/",
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
