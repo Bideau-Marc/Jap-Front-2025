@@ -3,7 +3,10 @@ name: Build Project for Production
 on:
   push:
     branches:
-      - main  # Ce workflow se déclenche à chaque push sur la branche main
+      - main  # Se déclenche à chaque push sur la branche main
+  pull_request:
+    branches:
+      - main  # Se déclenche lors d'un merge vers la branche main
 
 jobs:
   build:
