@@ -7,5 +7,5 @@ export interface Words {
     exemple: string,
     theme: Theme,
     representation: Representation
-    choices: string[];
+    choices: string[];//choice for qcm 
 }
