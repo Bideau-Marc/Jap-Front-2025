@@ -25,4 +25,4 @@ jobs:
         run: npm install  # Installe les dépendances du projet
 
       - name: Build project for production
-        run: npm run build --prod  # Exécute le build en mode production
+        run: npm run build  # Exécute le build en mode production
