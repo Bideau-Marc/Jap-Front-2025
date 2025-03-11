@@ -20,7 +20,7 @@ export class ScoreService {
 
   }
 
-  // Réinitialiser les scores
+  // Réinitialiser les scores 
   resetScores() {
     this.score.reset();
   }
