@@ -1,30 +1,25 @@
-name: Deploy to GitHub Pages
+name: Build Project for Production
 
 on:
   push:
     branches:
-      - main  # ou master, selon la branche principale de ton dépôt
+      - main  # Ce workflow se déclenche à chaque push sur la branche main
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2  # Récupère le code source
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: '14'
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'  # Assure-toi d'utiliser la bonne version de Node.js
 
-    - name: Install dependencies
-      run: |
-        npm install
-        npm run build --prod
+      - name: Install dependencies
+        run: npm install  # Installe les dépendances du projet
 
-    - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./dist  # Remplace par le dossier de sortie généré par ton build Angular
+      - name: Build project for production
+        run: npm run build --prod  # Exécute le build en mode production
