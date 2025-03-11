@@ -14,7 +14,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2  # Récupère le code source
+        uses: actions/checkout@v3 # Récupère le code source
 
       - name: Set up Node.js
         uses: actions/setup-node@v2
